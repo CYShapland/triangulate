@@ -2,12 +2,11 @@
 
 ## Authors
 
-- **Luke McGuinness**. Author, maintainer.
-  [](https://orcid.org/0000-0001-8730-9761)
+- **Luke McGuinness**. Author. [](https://orcid.org/0000-0001-8730-9761)
 
 - **Tassia Jones**. Author.
 
-- **Chin Yang Shapland**. Author.
+- **Chin Yang Shapland**. Author, maintainer.
 
 ## Citation
 
