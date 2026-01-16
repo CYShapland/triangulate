@@ -136,7 +136,7 @@ ggplot(comparison, aes(y = result_id, x = yi_adj, color = scenario)) +
   theme_minimal()
 #> Warning: `geom_errorbarh()` was deprecated in ggplot2 4.0.0.
 #> ℹ Please use the `orientation` argument of `geom_errorbar()` instead.
-#> This warning is displayed once every 8 hours.
+#> This warning is displayed once per session.
 #> Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
 #> generated.
 #> `height` was translated to `width`.
