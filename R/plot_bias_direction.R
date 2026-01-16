@@ -209,7 +209,7 @@ rob_direction <- function(dat,
   res_all <- rma(yi, vi, data=dat, method = rma_method)
 
   #par(fig=c(0.01,0.7,0,1))
-  #par(fig = c(0.01, 0.7, 0.01, 0.96))
+  #par(fig = c(0.01, 0.7, 0.01, 0.94))
   par(fig = c(0.01, 0.7, 0.00, 0.94))  # try lowering the top more if needed
 
 
