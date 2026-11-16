@@ -29,7 +29,7 @@ library(metafor)
 library(triangulate)
 ```
 
-> This example is based on data and analysis from [Shapland et al., 2024](https://www.medrxiv.org/content/10.1101/2024.09.20.24314046v1).
+> This example is based on data and analysis from [Shapland et al., 2026](https://link.springer.com/article/10.1007/s10654-026-01484-1).
 
 ## Introduction
 
