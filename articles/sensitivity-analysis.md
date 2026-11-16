@@ -16,6 +16,7 @@ We define a small synthetic dataset mimicking studies with moderate bias
 and indirectness.
 
 ``` r
+
 # creates 4 made up study results with effect estimates (yi) and variances (vi)
 
 example_data <- tibble(
@@ -32,6 +33,7 @@ We apply “moderate” priors for all studies, similar to a base-case
 analysis.
 
 ``` r
+
 # assumptions about additive and proportional bias, each with some uncertainty
 
 bias_priors <- example_data %>%
@@ -62,6 +64,7 @@ We use tri_prep_data() and tri_calculate_adjusted_estimates() to get
 bias-adjusted effect sizes.
 
 ``` r
+
 # this is where we combine the bias/indirectness priors with the study results and adjusts yi and vi to get new columns yi_adj and vi_adj for the adjusted estimate and varainces, respectively
 
 base_prepped <- tri_prep_data(bias_priors, indirectness_priors)
@@ -84,6 +87,7 @@ We now increase the additive and proportional bias priors to simulate a
 more conservative scenario.
 
 ``` r
+
 # represents a stricter assumption e.g if the bias was worse than originally thought. same process applied as before but with new priors
 
 sensitive_bias <- bias_priors %>%
@@ -113,6 +117,7 @@ sensitive_adjusted %>%
 We plot the adjusted effect estimates under both scenarios.
 
 ``` r
+
 # overlays the 2 scenarios to visually represent how the priors affect the estimated effect
 comparison <- bind_rows(
   base_adjusted %>% mutate(scenario = "Base"),

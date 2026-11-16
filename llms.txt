@@ -21,12 +21,14 @@ This package deals with steps 5 and 6.
 To install either run
 
 ``` r
+
 install.packages('triangulate', repos = c('https://mrcieu.r-universe.dev', 'https://cloud.r-project.org'))
 ```
 
 or
 
 ``` r
+
 remotes::install_github("mcguinlu/triangulate")
 ```
 
@@ -58,6 +60,7 @@ remotes::install_github("mcguinlu/triangulate")
 The approach described
 
 ``` r
+
 # Load libraries
 library(magrittr)
 library(triangulate)
@@ -114,6 +117,7 @@ Once we load our data, helper functions will convert it to *long* format
 and convert to absolute directions of bias/indirectness.
 
 ``` r
+
 dat_bias <- triangulate::dat_bias %>%
 
 # Convert to long format
@@ -125,6 +129,7 @@ tri_to_long() %>%
 Then apply the same approach to the indirectness dataset:
 
 ``` r
+
 dat_ind <- triangulate::dat_ind %>%
   # Convert to long format
   tri_to_long() %>%
@@ -135,6 +140,7 @@ dat_ind <- triangulate::dat_ind %>%
 ## Add prior distributions of bias/indirectness
 
 ``` r
+
 dat_bias_values
 #>   domain        j bias_m_add bias_v_add bias_m_prop bias_v_prop
 #> 1    all     high       0.18       0.10        0.06       0.032
@@ -148,6 +154,7 @@ We now have two clean datasets, one for bias and one for indirectness,
 that we can use to
 
 ``` r
+
 dat_final <- tri_prep_data(dat_bias, dat_ind)
 ```
 
@@ -157,6 +164,7 @@ At this point, we have an unadjusted (*yi*, *vi*) and adjusted
 These estimates can then simply be passed to `metafor` for analysis
 
 ``` r
+
 model <- metafor::rma(
   yi = yi,
   vi = vi,
@@ -175,6 +183,7 @@ metafor::forest(
 ![Forest plot](reference/figures/README-unnamed-chunk-8-1.png)
 
 ``` r
+
 
 model_adj <- metafor::rma(
   yi = yi_adj,

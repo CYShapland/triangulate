@@ -1,7 +1,7 @@
 # Triangulation example: Beta-carotene and CHD
 
 > This example is based on data and analysis from [Shapland et al.,
-> 2024](https://www.medrxiv.org/content/10.1101/2024.09.20.24314046v1).
+> 2026](https://link.springer.com/article/10.1007/s10654-026-01484-1).
 
 ## Introduction
 
@@ -21,6 +21,7 @@ coronary heart disease (CHD). It includes standardised effect estimates
 meta-analysis across different study designs.
 
 ``` r
+
 # Data loaded from:
 # “Res_MetaAll_beta_carotene_AllCHD_v2.Rdata” saved in the
 # R/CHD/01_Prep_Data.R directory of the GitHub repository:
@@ -32,6 +33,7 @@ load(system.file("extdata", "Res_MetaAll_beta_carotene_AllCHD_v2.Rdata", package
 ## 2. Merge with RoB Assessments
 
 ``` r
+
 rob_file <- system.file("extdata", "beta_carotene_data.xlsx", package = "triangulate")
 RoB <- readxl::read_excel(rob_file, sheet = "main_data")
 colnames(RoB)[2] <- "Author"
@@ -55,6 +57,7 @@ dat_CHDbias<-as_tibble(Metadta_RoB_CHD)
 ## 3. Format & Validate Input
 
 ``` r
+
 tri_dat_check(dat_CHDbias)
 #> tri_dat_check(): All expected columns are present (mode = 'minimal').
 
@@ -79,6 +82,7 @@ priors but also adjusts the effect estimate accordingly — therefore the
 pipeline adjusts the effect estimate by both bias and indirectness.
 
 ``` r
+
 dat_CHDind <- dat_CHDbias %>% select(result_id, study, type, yi, vi)
 
 for (j in paste0("d", 1:3)) {
@@ -104,6 +108,7 @@ the priors (e.g. changing the additive mean for a particular domain),
 building on the default set.
 
 ``` r
+
 custom_bias_priors <- triangulate::dat_bias_values %>%
   add_row(
     domain = 'all', j = 'critical',
@@ -115,6 +120,7 @@ custom_bias_priors <- triangulate::dat_bias_values %>%
 ### 5.2 Append priors and prepare data, and estimate adjusted effects
 
 ``` r
+
 dat_CHDbias_prep <- dat_CHDbias %>%
   tri_to_long() %>%
   tri_absolute_direction() %>%
@@ -124,12 +130,14 @@ dat_CHDbias_prep <- dat_CHDbias %>%
 ## 6. Final data adjusted for both bias and indirectness
 
 ``` r
+
 datCHD_final <- tri_prep_data(dat_CHDbias_prep, dat_CHDind)
 ```
 
 ## 7. Generate Bias-Adjusted Plot
 
 ``` r
+
 dat_CHDbias_final<-dat_CHDbias_rob %>% right_join(datCHD_final[c("result_id","yi_adj", "vi_adj")], by="result_id") # this data now contains original and adjusted estimates for plotting
 tri_plot_bias_direction(dat_CHDbias_final)
 ```

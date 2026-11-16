@@ -3,6 +3,7 @@
 **WARNING:** This page is still under construction
 
 ``` r
+
 library(triangulate)
 library(dplyr)
 #> 
@@ -29,6 +30,7 @@ We define a small dataset of six studies, each with a different
 combination of bias/indirectness type and direction.
 
 ``` r
+
 example_data <- tibble(
   result_id = paste0("S", 1:6),
   study = paste("Study", 1:6),
@@ -59,6 +61,7 @@ Triangulation requires domain-level assessments to be in long format. We
 use tri_to_long() to convert from wide to long form.
 
 ``` r
+
 example_long <- tri_to_long(example_data)
 head(example_long)
 #> # A tibble: 6 × 8
@@ -78,6 +81,7 @@ Calculate the absolute direction of bias/indirectness based on type,
 direction, and position of the estimate relative to the null.
 
 ``` r
+
 example_abs <- tri_absolute_direction(example_long)
 head(example_abs)
 #> # A tibble: 6 × 8
@@ -97,6 +101,7 @@ Next, we append numerical prior values (mean and SD) corresponding to
 domain judgments using tri_append_bias().
 
 ``` r
+
 example_bias <- tri_append_bias(example_abs, dat_bias_values)
 head(example_bias)
 #> # A tibble: 6 × 12

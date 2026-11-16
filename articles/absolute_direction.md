@@ -47,21 +47,21 @@ to pull the effect to the ***right*** (absolute direction = right), it
 is given a positive sign. This is because in
 [`tri_calculate_adjusted_estimates()`](https://mcguinlu.github.io/triangulate/reference/tri_calculate_adjusted_estimates.md),
 we are subtracting the total additive bias from the effect estimate
-$y_{i}$.
+$`y_i`$.
 
 So to correct for an absolute direction to the ***right***, we want the
 sign of the prior to be positive (e.g. *N(0.9, 0.5)*), so that when it
 is subtracted from the effect estimate, the overall impact is negative
 (and so we shift the effect estimate to the left):
 
-$y_{i} - (0.6)$ = $y_{i} - 0.6$
+$`y_i - (0.6)`$ = $`y_i - 0.6`$
 
 Conversely, when the assessment is that the absolute direction of bias
 is to the ***left***, we want the sign of the bias correction to be
 negative (e.g. *N(-0.9, 0.5)*), so that we are shifting the effect
 estimate to the right:
 
-$y_{i} - ( - 0.6)$ = $y_{i} + 0.6$
+$`y_i - (-0.6)`$ = $`y_i + 0.6`$
 
 See Section 6.1 of [Turner et
 al.](https://rss.onlinelibrary.wiley.com/doi/10.1111/j.1467-985X.2008.00547.x)
@@ -74,6 +74,7 @@ consider a simple dataset of 6 studies, with each study fulfilling one
 of the scenarios described above.
 
 ``` r
+
 # Create the example dataset
 example_data <- tibble(
   result_id = paste0("S", 1:6),  # <-- Add this line
@@ -97,6 +98,7 @@ example_data_prepped <- example_data %>%
 ### Additive - Favours comparator - right - positive sign
 
 ``` r
+
 example_data[1,]
 #> # A tibble: 1 × 7
 #>   result_id study      yi    vi d1j      d1t   d1d               
@@ -113,6 +115,7 @@ example_data_prepped[1,]
 ### Additive - Favours intervention - left - negative sign
 
 ``` r
+
 example_data[2,]
 #> # A tibble: 1 × 7
 #>   result_id study      yi    vi d1j      d1t   d1d                 
@@ -129,6 +132,7 @@ example_data_prepped[2,]
 ### Proportional - Point estimate above NULL - Towards the NULL - left - negative sign
 
 ``` r
+
 example_data[3,]
 #> # A tibble: 1 × 7
 #>   result_id study      yi    vi d1j      d1t   d1d           
@@ -145,6 +149,7 @@ example_data_prepped[3,]
 ### Proportional - Point estimate below NULL - Away from NULL - right - positive sign
 
 ``` r
+
 example_data[4,]
 #> # A tibble: 1 × 7
 #>   result_id study      yi    vi d1j      d1t   d1d         
@@ -161,6 +166,7 @@ example_data_prepped[4,]
 ### Proportional - Point estimate below NULL - Towards the NULL - right - positive sign
 
 ``` r
+
 example_data[5,]
 #> # A tibble: 1 × 7
 #>   result_id study      yi    vi d1j      d1t   d1d           
@@ -177,6 +183,7 @@ example_data_prepped[5,]
 ### Proportional - Point estimate below NULL - Away from NULL - left - negative sign
 
 ``` r
+
 example_data[6,]
 #> # A tibble: 1 × 7
 #>   result_id study      yi    vi d1j      d1t   d1d         

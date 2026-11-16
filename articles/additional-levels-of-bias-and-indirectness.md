@@ -5,6 +5,7 @@ option in our assessments. In this example, Domain 1 of Study 1 has a
 “Critical” risk of bias assessment
 
 ``` r
+
 dat_bias_with_critical <- triangulate::dat_bias
 dat_bias_with_critical[1,6] <- 'Critical'
 
@@ -19,6 +20,7 @@ This requires us to add in another prior (‘critical’) to the library
 contained in `dat_bias_values`:
 
 ``` r
+
 custom_bias_priors <- triangulate::dat_bias_values %>% 
   add_row(domain = 'all',
           j = 'critical',
@@ -39,6 +41,7 @@ It is then just a case of passing our custom prior dataset to the prep
 functions:
 
 ``` r
+
 dat_bias_with_critical_prepped <- dat_bias_with_critical %>%
   tri_to_long() %>%
   tri_absolute_direction() %>%

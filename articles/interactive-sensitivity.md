@@ -16,6 +16,7 @@ adjusted effect estimates update automatically as the priors change.
 We use a small example dataset with four hypothetical studies.
 
 ``` r
+
 example_data <- tibble::tibble(
   result_id = paste0("S", 1:4),
   study = paste("Study", 1:4),
@@ -31,6 +32,7 @@ To run the app, call the function below. This will open a Shiny window
 (locally) allowing you to interactively adjust the priors.
 
 ``` r
+
 interactive_bias_plot(example_data)
 ```
 
