@@ -21,8 +21,6 @@ if (!requireNamespace("readxl", quietly = TRUE)) {
 }
 
 library(triangulate)
-library(metafor)
-library(tidyverse)
 ```
 ## Introduction
 
