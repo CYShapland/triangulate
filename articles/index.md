@@ -10,6 +10,8 @@
   CHD](https://mcguinlu.github.io/triangulate/articles/beta-carotene-chd-example.md):
 - [Creating triangulation
   datasets](https://mcguinlu.github.io/triangulate/articles/Creating-triangulation-datasets.md):
+- [Triangulation example: HRT and
+  CVD](https://mcguinlu.github.io/triangulate/articles/HRT-CVD-example.md):
 - [Interactive Sensitivity
   Analysis](https://mcguinlu.github.io/triangulate/articles/interactive-sensitivity.md):
 - [Sensitivity Analyses in
