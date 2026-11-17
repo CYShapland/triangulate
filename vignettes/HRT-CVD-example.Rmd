@@ -21,6 +21,8 @@ if (!requireNamespace("readxl", quietly = TRUE)) {
 }
 
 library(triangulate)
+library(dplyr)
+library(tidyr)
 ```
 ## Introduction
 
